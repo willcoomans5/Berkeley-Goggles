@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react"
 import { firebaseApp as app } from "./firebase.jsx"
 import {ref as fileref, getStorage, uploadBytes} from "@firebase/storage"
-import { v4 } from "uuid"
+import { v4 } from "uuid"; 
 
 const storage = getStorage(app); 
 
@@ -24,15 +24,8 @@ export default function UploadImages() {
         }
     }
 
-    function reset() {
-
-    }
-
     function displayImage(e) {
         setImages(e.target.files)
-        for (let i = 0; i < images.length; i++) {
-            images[i]
-        }
     }
 
     return (
