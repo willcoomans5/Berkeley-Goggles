@@ -1,4 +1,4 @@
-function LandingPage() {
+function Profile() {
     return (
         <>
         // insert logo here
@@ -10,4 +10,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage;
+export default Profile;
