@@ -24,6 +24,7 @@ export default function UploadImages() {
         }
     }
 
+
     function displayImage(e) {
         setImages(e.target.files)
     }

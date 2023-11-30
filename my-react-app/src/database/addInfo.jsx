@@ -47,7 +47,7 @@ export default function AddInfo() {
                     <option value="sophomore">Sophomore</option>
                     <option value="junior">Junior</option>
                     <option value="senior">Senior</option>
-                </select>
+                </select><br/>
                 <label>What's your major</label><br/>
                 <input type="text" ref={userMajor}/>
                 <br/>
