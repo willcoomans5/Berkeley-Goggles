@@ -1,7 +1,7 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState} from "react"
 import { firebaseApp as app } from "./firebase.jsx"
-import {ref as fileref, getStorage, uploadBytes} from "@firebase/storage";
-import { v4 } from "uuid"; 
+import {ref as fileref, getStorage, uploadBytes} from "@firebase/storage"
+import { v4 } from "uuid"
 
 const storage = getStorage(app); 
 
@@ -22,14 +22,17 @@ export default function UploadImages() {
             uploadBytes(fileref(storage, path), images[i]); 
             imageArray.push(path); 
         }
+    }
 
-        console.log(imageArray); 
-        
-        set(dataref(database, 'users/' + name), {                      
-            description, 
-            imagePath: imageArray 
-        }, 
-        ); 
+    function reset() {
+
+    }
+
+    function displayImage(e) {
+        setImages(e.target.files)
+        for (let i = 0; i < images.length; i++) {
+            images[i]
+        }
     }
 
     return (
@@ -39,7 +42,7 @@ export default function UploadImages() {
                 <label>name</label><br/>
                 <input type="text" ref={username}/>
                 <br/>
-                <input type="file" multiple onChange={(e)=>setImages(e.target.files)} />
+                <input type="file" multiple onChange={displayImage} />
                 <button type="submit">Save</button>
             </form>
         </div>
