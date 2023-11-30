@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import { firebaseApp as app } from "./firebase.jsx"
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { Link } from "react-router-dom";
-import { redirect } from "react-router-dom";
 import "../App.jsx"
 
 const auth = getAuth(app); 
+setPersistence(auth, browserSessionPersistence);
 
 const SignUp = () =>  {
     const [email, setEmail] = useState();
@@ -27,7 +27,7 @@ const SignUp = () =>  {
                 handleRedirect(); 
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error); 
                 setDisplayError("Already registered"); 
             }); 
         } else {

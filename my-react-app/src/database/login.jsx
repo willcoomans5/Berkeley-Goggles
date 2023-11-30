@@ -1,21 +1,37 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import { firebaseApp as app} from "./firebase.jsx"
-import {signInWithEmailAndPassword, getAuth} from "firebase/auth"
+import {signInWithEmailAndPassword, getAuth, setPersistence, browserSessionPersistence} from "firebase/auth"
+import { Link } from "react-router-dom";
 
 const auth = getAuth(app); 
+setPersistence(auth, browserSessionPersistence); 
 
 const LogIn = () =>  {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState(); 
 
+    const [shouldRedirect, setShouldRedirect] = useState(false);
+
+    useEffect(() => {
+        const user = auth.currentUser; 
+        if (user) {
+            setShouldRedirect(true); 
+        }
+    }, [])
+
+    const handleRedirect = () => {
+        setShouldRedirect(true);
+      };
+
     const signIn = (e) => {
         e.preventDefault(); // prevent page from being reloaded
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            console.log(userCredential)
+            handleRedirect(); 
+            console.log(userCredential); 
         })
         .catch((error) => {
-            console.log(error)
+            console.log(error); 
         }); 
     }
 
@@ -36,6 +52,7 @@ const LogIn = () =>  {
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 <button type="submit">Log In</button>
+                <p>{shouldRedirect && <Link to="/profile"><button>Continue</button></Link>}</p>
             </form>
         </div>
     )
