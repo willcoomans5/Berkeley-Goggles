@@ -19,7 +19,11 @@
     font-size: 50px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
     color: #2F343A;
+    position: relative;
+    left: 38%;
+    top: -20px;
 
 }
 
@@ -31,7 +35,11 @@
     font-size: 50px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
     color: #2F343A;
+    position: relative;
+    left: 38%;
+    top: -20px;
 
 }
 
