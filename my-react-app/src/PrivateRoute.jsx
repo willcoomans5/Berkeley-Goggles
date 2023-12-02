@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     console.log(auth.currentUser); 
 
     if (!auth.currentUser) {
-        return <Navigate to="/login"/>;
+        return <Navigate to="/"/>;
     }
     return children;
 };

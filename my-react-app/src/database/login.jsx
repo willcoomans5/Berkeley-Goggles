@@ -38,7 +38,7 @@ const LogIn = () =>  {
     return (
         <div>
             <form onSubmit={signIn}>
-                <div id="inputContainer">
+                <div className="inputContainer">
                     <h1>Log In</h1>
                     <input 
                         type="email" 
@@ -53,8 +53,8 @@ const LogIn = () =>  {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit">Log In</button>
+                    <p>{shouldRedirect && <Link to="/profile"><button>Continue</button></Link>}</p>
                 </div>
-                <p>{shouldRedirect && <Link to="/profile"><button>Continue</button></Link>}</p>
             </form>
         </div>
     )

@@ -1,8 +1,3 @@
-import UploadImages from './database/uploadImages.jsx'; 
-import LogIn from './database/login.jsx'; 
-import SignUp from './database/signup.jsx';
-import AuthDetails from './database/authDetails.jsx';
-import AddInfo from './database/addInfo.jsx';
 
 import React, {Fragment} from 'react'
 import PrivateRoute from './PrivateRoute.jsx';
@@ -12,6 +7,7 @@ import LoginPage from './pages/LoginPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
 import Profile from './pages/Profile.jsx'
 import NewUserQs from './pages/NewUserQs.jsx'
+import UploadImages from './database/uploadImages.jsx'; 
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css'
@@ -39,6 +35,14 @@ function App() {
               </PrivateRoute>
               }> 
             </Route>
+            <Route
+              exact path = "/upload"
+              element = {
+                <PrivateRoute>
+                  <UploadImages/>
+                </PrivateRoute>
+              }
+            />
         </Routes>
     </Router>
   )

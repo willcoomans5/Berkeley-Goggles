@@ -1,13 +1,9 @@
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import { firebaseApp as app } from "./firebase.jsx"
 import {getDatabase, ref as dataref, set} from "@firebase/database";
-import {ref as fileref, getStorage, uploadBytes} from "@firebase/storage"
 import { getAuth } from "firebase/auth";
-import { v4 } from "uuid"; 
-import { redirect, useNavigate } from "react-router";
-
+import { Link } from "react-router-dom";
 const database = getDatabase(app);
-const storage = getStorage(app); 
 const auth = getAuth(app); 
 
 
@@ -15,13 +11,6 @@ export default function AddInfo() {
     const user = auth.currentUser; 
     console.log(user); 
 
-    if (user) {
-       const uid = user.uid;
-    } else {
-       redirect("/login"); 
-    }
-
-    const [images, setImages] = useState(); 
     const userName = useRef(); 
     const userYear = useRef(); 
     const userBirthday = useRef(); 
@@ -31,7 +20,6 @@ export default function AddInfo() {
 
     const handleSave = async(e) => {
         e.preventDefault();
-        upload();
         writeUserEntry(
             userName.current.value, 
             userYear.current.value, 
@@ -41,6 +29,7 @@ export default function AddInfo() {
     }
 
     function writeUserEntry(name, year, major, birthday, description) {
+        const uid = auth.currentUser.uid; 
         set(dataref(database, 'users/' + uid), {       
             name, 
             year, 
@@ -48,20 +37,6 @@ export default function AddInfo() {
             birthday,               
             description
         }); 
-    }
-
-    function upload() {
-        const imageArray = []; 
-        for (let i = 0; i < images.length; i++) {
-            var path = `users/` + uid + `/${v4()}`; 
-            uploadBytes(fileref(storage, path), images[i]); 
-            imageArray.push(path); 
-        }
-    }
-
-
-    function displayImage(e) {
-        setImages(e.target.files)
     }
 
     return (
@@ -93,9 +68,8 @@ export default function AddInfo() {
                 <input type="text" ref={userDescription}/>
                 <br/>
 
-                <h4>Upload Images</h4>
-                <input type="file" multiple onChange={displayImage} />
                 <button type="submit">Save</button>
+                <p><Link to="/upload"><button>Continue</button></Link></p>
             </form>
         </div>
     )
