@@ -1,24 +1,28 @@
-import React, {useRef, useState} from "react"
+import React, { useState } from "react"
 import { firebaseApp as app } from "./firebase.jsx"
 import {ref as fileref, getStorage, uploadBytes} from "@firebase/storage"
 import { v4 } from "uuid"; 
+import { getAuth } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const storage = getStorage(app); 
+const auth = getAuth(app); 
 
 export default function UploadImages() {
+
     const [images, setImages] = useState(); 
-    const username = useRef(); 
 
     const handleSave = async(e) => {
         e.preventDefault();
-        upload(username.current.value)
+        upload(); 
     }
 
-    function upload(name) {
+    function upload() {
         const imageArray = []; 
+        const uid = auth.currentUser.uid; 
        
         for (let i = 0; i < images.length; i++) {
-            var path = `users/` + name + `/${v4()}`; 
+            var path = `users/` + uid + `/${v4()}`; 
             uploadBytes(fileref(storage, path), images[i]); 
             imageArray.push(path); 
         }
@@ -32,11 +36,9 @@ export default function UploadImages() {
         <div>
             <form onSubmit = {handleSave}>
                 <h4>Upload Images</h4>
-                <label>name</label><br/>
-                <input type="text" ref={username}/>
-                <br/>
                 <input type="file" multiple onChange={displayImage} />
                 <button type="submit">Save</button>
+                <p><Link to="/questions"><button>Back</button></Link></p>
             </form>
         </div>
     )

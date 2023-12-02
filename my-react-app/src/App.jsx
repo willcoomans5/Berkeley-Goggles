@@ -39,6 +39,14 @@ function App() {
               </PrivateRoute>
               }> 
             </Route>
+            <Route
+              exact path = "/upload"
+              element = {
+                <PrivateRoute>
+                  <UploadImages/>
+                </PrivateRoute>
+              }
+            />
         </Routes>
     </Router>
   )
