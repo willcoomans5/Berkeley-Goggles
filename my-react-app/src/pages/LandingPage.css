@@ -1,6 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Noto+Sans+JP:wght@100;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700;900&display=swap');
 
 .landingTitle {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Nerko One';
+    position: relative;
+    top: -50px;
+    left: 5%;
+    color: #9DC7FF;
+    font-size: 175px;
 
 }
+
+.signInButton {
+    border-radius: 500%;
+    width: 300px;
+    height: 75px; 
+    background: #9DC7FF;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #2F343A;
+
+}
+
+.signUpButton {
+    border-radius: 500%;
+    width: 300px;
+    height: 75px; 
+    background: #9DC7FF;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #2F343A;
+
+}
+
+
