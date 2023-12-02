@@ -38,20 +38,22 @@ const LogIn = () =>  {
     return (
         <div>
             <form onSubmit={signIn}>
-                <h4>Log In</h4>
-                <input 
-                type="email" 
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                />
-                <input 
-                type="password" 
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Log In</button>
+                <div id="inputContainer">
+                    <h1>Log In</h1>
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="password" 
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button type="submit">Log In</button>
+                </div>
                 <p>{shouldRedirect && <Link to="/profile"><button>Continue</button></Link>}</p>
             </form>
         </div>
