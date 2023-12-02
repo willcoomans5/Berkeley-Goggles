@@ -1,45 +1,56 @@
-import React, { useState } from "react"
-import { firebaseApp as app } from "./firebase.jsx"
-import {ref as fileref, getStorage, uploadBytes} from "@firebase/storage"
-import { v4 } from "uuid"; 
-import { getAuth } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  getStorage,
+  listAll,
+  list,
+} from "firebase/storage";
+import { firebaseApp } from "./firebase";
+import { v4 } from "uuid";
 
-const storage = getStorage(app); 
-const auth = getAuth(app); 
+const storage = getStorage(firebaseApp); 
 
-export default function UploadImages() {
+function UploadImages() {
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
 
-    const [images, setImages] = useState(); 
+  const imagesListRef = ref(storage, "images/");
+  const uploadFile = () => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+      });
+    });
+  };
 
-    const handleSave = async(e) => {
-        e.preventDefault();
-        upload(); 
-    }
+  useEffect(() => {
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
+  }, []);
 
-    function upload() {
-        const imageArray = []; 
-        const uid = auth.currentUser.uid; 
-       
-        for (let i = 0; i < images.length; i++) {
-            var path = `users/` + uid + `/${v4()}`; 
-            uploadBytes(fileref(storage, path), images[i]); 
-            imageArray.push(path); 
-        }
-    }
-
-    function displayImage(e) {
-        setImages(e.target.files)
-    }
-
-    return (
-        <div>
-            <form onSubmit = {handleSave}>
-                <h4>Upload Images</h4>
-                <input type="file" multiple onChange={displayImage} />
-                <button type="submit">Save</button>
-                <p><Link to="/questions"><button>Back</button></Link></p>
-            </form>
-        </div>
-    )
+  return (
+    <div className="App">
+      <input
+        type="file"
+        onChange={(event) => {
+          setImageUpload(event.target.files[0]);
+        }}
+      />
+      <button onClick={uploadFile}> Upload Image</button>
+      {imageUrls.map((url) => {
+        return <img src={url} height="300"/>;
+      })}
+    </div>
+  );
 }
+
+export default UploadImages;
