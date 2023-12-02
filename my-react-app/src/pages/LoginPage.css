@@ -15,8 +15,6 @@ input {
     justify-content: center;
     place-items: center;
     height: 100vh;
-    position: relative;
-    left: 165%;
 }
 
 h1 {
