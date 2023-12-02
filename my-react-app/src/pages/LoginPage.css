@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Noto+Sans+JP:wght@100;300;700&display=swap');
+
+input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    display: block;
+    margin: 15px;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body {
+    color: #ffffff;
+    background-color: #2F343A;
+    font-family: 'Noto Sans JP', sans-serif;
+    justify-content: center;
+}
