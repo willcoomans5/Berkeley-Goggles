@@ -150,6 +150,7 @@ p:hover {
     color: #2F343A;
     position: relative;
     top: -30px;
+    padding-bottom: 20px;
 }
 
 .aboutTitle {
@@ -159,11 +160,20 @@ p:hover {
     font-size: 50px;
 
 }
+
+.aboutSubTitle {
+  text-align: center;
+    padding-top: 30px;
+    font-family: 'Nerko One';
+    font-size: 30px;
+
+}
 .aboutPara {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     text-align: center; 
-
+    padding-left:20%;
+    padding-right: 20%;
 }
 
 .logoImage {
@@ -174,4 +184,9 @@ p:hover {
   max-height:95px;
   width: auto;
   height: auto;
+}
+
+.footer {
+  background-color: #2F343A;
+  margin: 5%
 }
