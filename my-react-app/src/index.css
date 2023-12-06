@@ -12,18 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-<<<<<<< HEAD
 a {
   text-decoration: inherit;
   color: #2F343A;
 }
-=======
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
->>>>>>> 0f525d95aa1f7c6817e962d915ab93b23ebee033

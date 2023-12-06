@@ -3,28 +3,30 @@
 
 .landingTitle {
     font-family: 'Nerko One';
-    position: relative;
-    top: -50px;
+    position: absolute;
+    top: -75px;
     left: 5%;
     color: #9DC7FF;
     font-size: 175px;
 
 }
 
-.signInButton {
+/* .signInButton {
     border-radius: 500%;
     width: 300px;
     height: 75px; 
     background: #9DC7FF;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     color: #2F343A;
-    position: relative;
+    position: absolute;
     left: 38%;
-    top: -20px;
-
+    top: 350px;
+}
+p:hover {
+    background:#5c6570;
 }
 
 .signUpButton {
@@ -37,10 +39,139 @@
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     color: #2F343A;
-    position: relative;
+    position: absolute;
     left: 38%;
-    top: -20px;
+    top: 475px;
 
+} */
+
+.backgroundImage {
+    opacity: 0.55;
+    mix-blend-mode: overlay;
 }
 
 
+
+/* CSS */
+.login {
+  background-color: #9DC7FF;
+  border-radius: 20px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(117, 117, 117, 0.7) 0 1px 0 0 inset;
+  width: 200px;
+    height: 50px; 
+  box-sizing: border-box;
+  color: #2F343A;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: absolute;
+    left: 42%;
+    top: 450px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.login:hover,
+.login:focus {
+  background-color: #E3E3E3;
+  color: #2F343A;
+}
+
+.login:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.login:active {
+  background-color: #9DC7FF;
+  box-shadow: none;
+  color: #2F343A;
+}
+
+.signup {
+    background-color: #9DC7FF;
+    border-radius: 20px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(117, 117, 117, 0.7) 0 1px 0 0 inset;
+    width: 200px;
+      height: 50px; 
+    box-sizing: border-box;
+    color: #2F343A;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: absolute;
+      left: 42%;
+      top: 525px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .signup:hover,
+  .signup:focus {
+    background-color: #E3E3E3;
+    color: #2F343A;
+  }
+  
+  .signup:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .signup:active {
+    background-color: #9DC7FF;
+    box-shadow: none;
+    color: #2F343A;
+  }
+
+.about {
+    background-color: #E3E3E3;
+    color: #2F343A;
+    position: relative;
+    top: -30px;
+}
+
+.aboutTitle {
+    text-align: center;
+    padding-top: 30px;
+    font-family: 'Nerko One';
+    font-size: 50px;
+
+}
+.aboutPara {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    text-align: center; 
+
+}
+
+.logoImage {
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
