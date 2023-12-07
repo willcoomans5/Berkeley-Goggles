@@ -74,7 +74,10 @@ export default function AddInfo() {
           
 
                 <label className = "bodyText">Describe yourself</label>
-                <input className = "addInfoInput" type="text" ref={userDescription}/>
+                <input 
+                className = "addInfoInput" 
+                placeholder="Answer Here"
+                type="text" ref={userDescription}/>
              
 
                 <button className = "addInfoSubmit" type="submit">Save</button>
