@@ -48,6 +48,7 @@ p:hover {
 .backgroundImage {
     opacity: 0.55;
     mix-blend-mode: overlay;
+    object-fit: contain;
 }
 
 
@@ -58,14 +59,14 @@ p:hover {
   border-radius: 20px;
   border: 1px solid #7aa7c7;
   box-shadow: rgba(117, 117, 117, 0.7) 0 1px 0 0 inset;
-  width: 200px;
-    height: 50px; 
+  width: 250px;
+    height: 60px; 
   box-sizing: border-box;
   color: #2F343A;
   cursor: pointer;
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 400;
   line-height: 1.15385;
   margin: 0;
@@ -104,14 +105,14 @@ p:hover {
     border-radius: 20px;
     border: 1px solid #7aa7c7;
     box-shadow: rgba(117, 117, 117, 0.7) 0 1px 0 0 inset;
-    width: 200px;
-      height: 50px; 
-    box-sizing: border-box;
-    color: #2F343A;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    width: 250px;
+    height: 60px; 
+  box-sizing: border-box;
+  color: #2F343A;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
     font-weight: 400;
     line-height: 1.15385;
     margin: 0;
@@ -119,7 +120,7 @@ p:hover {
     padding: 8px .8em;
     position: absolute;
       left: 42%;
-      top: 525px;
+      top: 550px;
     text-align: center;
     text-decoration: none;
     user-select: none;
