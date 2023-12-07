@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import background from '../assets/IMG_3232.svg';
 import logo from '../assets/logo2.svg';
 import './LandingPage.css';
+import berkeley from '../assets/BERKELEY_GOGGLES.svg'
 function LandingPage() {
     return (
         <>
             <img src={background} className = "backgroundImage" alt="backgound-landing" />
             <div>
-                <h1  className = "landingTitle"> BERKELEY GOGGLES </h1>
+                <img src={berkeley} className = "title"/>
+                {/* <h1  className = "landingTitle"> BERKELEY GOGGLES </h1> */}
         </div>
         {/* <img src={background} alt="background-landing" /> */}
         {/* <h1 className = "landingTitle"> BERKELEY GOGGLES </h1> */}
