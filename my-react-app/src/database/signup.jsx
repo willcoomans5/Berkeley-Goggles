@@ -3,6 +3,7 @@ import { firebaseApp as app } from "./firebase.jsx"
 import { createUserWithEmailAndPassword, getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { Link } from "react-router-dom";
 import "../App.jsx"
+import "../pages/LoginPage.css"
 
 const auth = getAuth(app); 
 setPersistence(auth, browserSessionPersistence);
@@ -38,28 +39,35 @@ const SignUp = () =>  {
     return (
         <div>
             <form onSubmit={signUpUser}>
-                <h4>Create Account</h4>
+                <div className = "inputContainer"> 
+                <h1 className = "pageTitle">Create Account</h1>
                 <input 
+                className = "input"
                   type="email" 
-                  placeholder="Enter your email"
+                  placeholder="Enter your Berkeley.edu email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                /><br/>
+                />
+                {/* <br/> */}
                 <input 
+                className = "input"
                   type="password" 
-                  placeholder="Enter your password"
+                  placeholder="Password"
                   value={passwordDupe}
                   onChange={(e) => setPasswordDupe(e.target.value)}
-                /><br/>
-                <input 
+                />
+                {/* <br/> */}
+                <input                
+                className = "input"
                   type="password" 
                   placeholder="Re-enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 /><br/>
-                <button type="submit">Sign Up</button>
+                <button className = "submit" type="submit">Submit</button>
                 <p>{displayError}</p>
                 <p>{shouldRedirect && <Link to="/questions"><button>Continue</button></Link>}</p>
+            </div>
             </form>
         </div>
     )
