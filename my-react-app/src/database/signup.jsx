@@ -4,6 +4,8 @@ import { createUserWithEmailAndPassword, getAuth, setPersistence, browserSession
 import { Link } from "react-router-dom";
 import "../App.jsx"
 import "../pages/LoginPage.css"
+import logo from '../assets/logo2.svg';
+
 
 const auth = getAuth(app); 
 setPersistence(auth, browserSessionPersistence);
@@ -38,6 +40,8 @@ const SignUp = () =>  {
 
     return (
         <div className = "background">
+            <img src={logo} className = "logoLogin" alt="logo"/>
+
             <form onSubmit={signUpUser}>
                 <div className = "inputContainer"> 
                 <h1 className = "pageTitle">Create Account</h1>
