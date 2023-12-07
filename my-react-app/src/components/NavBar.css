@@ -2,7 +2,7 @@
 nav {
     display: flex;
     justify-content: flex-end; /* Align items to the right */
-    background-color: #333; /* Background color for the navigation bar */
+    background-color: #2F343A; /* Background color for the navigation bar */
     padding: 15px; /* Add some padding for better aesthetics */
   }
   
