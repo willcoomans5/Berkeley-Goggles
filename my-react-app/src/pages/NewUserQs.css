@@ -4,6 +4,14 @@
     margin-bottom: 0;
 }
 
+#dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 45px;
+  width: 424px;
+}
+
 .addInfoInput {
     width: 400px;
     height: 25px;
