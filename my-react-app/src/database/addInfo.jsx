@@ -48,12 +48,12 @@ export default function AddInfo() {
             <form onSubmit = {handleSave}>
                 <div className = "inputContainer">
                 
-                <label className = "bodyText">What's your name</label><br/>
+                <label className = "bodyText">What's your name</label>
                 <input className = "addInfoInput"
                 type="text" 
                 placeholder="First and Last"
                 ref={userName}/>
-                <br/>
+            
 
                 <label className = "bodyText"> What year are you</label>
                 
@@ -62,21 +62,20 @@ export default function AddInfo() {
                     <option value="sophomore">Sophomore</option>
                     <option value="junior">Junior</option>
                     <option value="senior">Senior</option>
-                </select><br/>
+                </select>
 
-                <label className = "bodyText">What's your major</label><br/>
+                <label className = "bodyText">What's your major</label>
                 <input className = "addInfoInput" 
                 placeholder="Answer Here"
                 type="text" ref={userMajor}/>
-                <br/>
 
-                <label className = "bodyText">When's your birthday</label><br/>
+                <label className = "bodyText">When's your birthday</label>
                 <input className = "addInfoInput" type="date" ref={userBirthday}/>
-                <br/>
+          
 
-                <label className = "bodyText">Describe yourself</label><br/>
+                <label className = "bodyText">Describe yourself</label>
                 <input className = "addInfoInput" type="text" ref={userDescription}/>
-                <br/>
+             
 
                 <button className = "addInfoSubmit" type="submit">Save</button>
                 <p><Link to="/upload"><button>Continue</button></Link></p>
