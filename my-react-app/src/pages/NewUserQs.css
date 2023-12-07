@@ -1,0 +1,95 @@
+.whiteBackground {
+    background-color:#E3E3E3;
+    margin: 0;
+}
+
+.addInfoInput {
+    width: 400px;
+    height: 25px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    display: block;
+    margin: 15px;
+    background-color: #2F343A;
+    color: #E3E3E3;
+    font-family: 'Montserrat';
+
+}
+
+.addInfoInputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    height: 100vh;
+    font-family: 'Montserrat';
+
+}
+
+body {
+    margin: 0;
+    background-color: #2F343A;
+    font-family: 'Montserrat';
+}
+
+  .addInfoSubmit {
+    background-color: #9DC7FF;
+    border-radius: 10px;
+    border: 1px solid #2F343A;
+    box-shadow: rgba(117, 117, 117, 0.7) 0 1px 0 0 inset;
+    width: 150px;
+      height: 40px; 
+    box-sizing: border-box;
+    color: #2F343A;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    margin-top: 15px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .addInfoSubmit:hover,
+  .addInfoSubmit:focus {
+    background-color: #2F343A;
+    color: #E3E3E3;
+    border: 1px solid #E3E3E3;
+  }
+  
+  .addInfoSubmit:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .addInfoSubmit:active {
+    background-color: #E3E3E3;
+    box-shadow: none;
+    color: #2F343A;
+  }
+
+  .addInfoPageTitle {
+    font-family: 'Montserrat';
+    font-size: 60px;
+    text-decoration: none;
+    font-weight: 100px;
+    text-align: center;
+    color: #2F343A;
+  }
+
+  .bodyText {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    color: #2F343A;
+  }

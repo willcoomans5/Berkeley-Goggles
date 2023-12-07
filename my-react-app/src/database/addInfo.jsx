@@ -3,6 +3,8 @@ import { firebaseApp as app } from "./firebase.jsx"
 import {getDatabase, ref as dataref, set} from "@firebase/database";
 import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
+import "../pages/NewUserQs.css"
+
 const database = getDatabase(app);
 const auth = getAuth(app); 
 
@@ -40,36 +42,45 @@ export default function AddInfo() {
     }
 
     return (
-        <div>
+        <div className = "whiteBackground">
+            <h1 className = "addInfoPageTitle"> Welcome to Berkeley Goggles</h1>
+            <p className = "bodyText"> You're almost there! Fill out the questions below so we can create your profile and find the best matches for you!</p>
             <form onSubmit = {handleSave}>
-                <h4>Enter your information</h4>
+                <div className = "inputContainer">
                 
-                <label>What's your name</label><br/>
-                <input type="text" ref={userName}/>
+                <label className = "bodyText">What's your name</label><br/>
+                <input className = "addInfoInput"
+                type="text" 
+                placeholder="First and Last"
+                ref={userName}/>
                 <br/>
 
-                <label>What year are you</label><br/>
-                <select ref={userYear}>
+                <label className = "bodyText"> What year are you</label>
+                
+                <select className = "addInfoInput" ref={userYear}>
                     <option value="freshman">Freshman</option>
                     <option value="sophomore">Sophomore</option>
                     <option value="junior">Junior</option>
                     <option value="senior">Senior</option>
                 </select><br/>
 
-                <label>What's your major</label><br/>
-                <input type="text" ref={userMajor}/>
+                <label className = "bodyText">What's your major</label><br/>
+                <input className = "addInfoInput" 
+                placeholder="Answer Here"
+                type="text" ref={userMajor}/>
                 <br/>
 
-                <label>When's your birthday</label><br/>
-                <input type="date" ref={userBirthday}/>
+                <label className = "bodyText">When's your birthday</label><br/>
+                <input className = "addInfoInput" type="date" ref={userBirthday}/>
                 <br/>
 
-                <label>Describe yourself</label><br/>
-                <input type="text" ref={userDescription}/>
+                <label className = "bodyText">Describe yourself</label><br/>
+                <input className = "addInfoInput" type="text" ref={userDescription}/>
                 <br/>
 
-                <button type="submit">Save</button>
+                <button className = "addInfoSubmit" type="submit">Save</button>
                 <p><Link to="/upload"><button>Continue</button></Link></p>
+                </div>
             </form>
         </div>
     )
