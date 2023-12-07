@@ -31,11 +31,11 @@ function RetrieveInfo() {
       });
 
       return (
-        <div>
-            <p>Name: {username}</p>
-            <p>Birthday: {birthday}</p>
-            <p>Bio: {description}</p>
-            <p>Year: {year}</p>
+        <div className = "profileInfo">
+            <p className = "profileName"> Your Name {username}</p>
+            <p className = "profileBio"> Birthday: {birthday}</p>
+            <p className = "profileBio"> Bio: {description}</p>
+            <p className = "profileBio"> Year: {year}</p>
         </div>
       ); 
     

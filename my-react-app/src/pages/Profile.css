@@ -1,0 +1,16 @@
+.profileInfo {
+color: #2F343A;
+display: flex;
+flex-direction: column;
+margin-left: auto;
+justify-content: flex-end;
+font-family: "Montserrat"
+}
+.profileName {
+    font-size: 150px;
+    font-family: "Nerko One"
+    }
+
+.profilePics {
+display: flex;
+}
