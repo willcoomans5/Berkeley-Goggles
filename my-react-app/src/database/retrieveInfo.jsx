@@ -32,7 +32,7 @@ function RetrieveInfo() {
 
       return (
         <div className = "profileInfo">
-            <p className = "profileName"> Your Name {username}</p>
+            <p className = "profileName"> {username}</p>
             <p className = "profileBio"> Birthday: {birthday}</p>
             <p className = "profileBio"> Bio: {description}</p>
             <p className = "profileBio"> Year: {year}</p>
