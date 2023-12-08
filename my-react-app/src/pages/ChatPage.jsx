@@ -41,8 +41,11 @@ function ChatApp() {
             Enter Chat
           </button>
         </div>
-      ) : (
+      ) : ( 
+      <>
+        <p className="chat-room-description">Currently chatting in {room}</p>
         <Chat room={room} />
+      </>
       )}
     </div>
   </>
