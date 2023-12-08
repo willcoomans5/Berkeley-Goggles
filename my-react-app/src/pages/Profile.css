@@ -7,19 +7,25 @@ html {
     color: #2F343A;
     display: flex;
     flex-direction: column;
-    margin-left: auto;
+    margin-left: 10px;
     justify-content: flex-end;
     font-family: "Montserrat";
     text-align: center;
     line-height: 1.1
 }
+.profileBio {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: flex-end;
 
+}
 .profileName {
-    padding: 0;
-    margin: 0;
+    position: relative;
     line-height: 1;
     font-size: 150px;
-    font-family: "Nerko One"
+    font-family: "Nerko One";
+    color: #2F343A;
 }
 
 .profilePics {

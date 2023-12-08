@@ -5,6 +5,7 @@ import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
 import "../pages/NewUserQs.css"
 import logo from '../assets/logo2.svg';
+import welcome from '../assets/frame_3.svg'
 
 
 const database = getDatabase(app);
@@ -45,13 +46,13 @@ export default function AddInfo() {
 
     return (
         <div className = "whiteBackground">
-            <h1 className = "addInfoPageTitle"> Welcome to Berkeley Goggles</h1>
+            <img src={welcome} className = "welcomeBerkeleyGoggles" alt ="title"/>
             <img src={logo} className = "logoWelcome" alt="logo"/>
             <p className = "bodyText"> You're almost there! Fill out the questions below so we can create your profile and find the best matches for you!</p>
             <form onSubmit = {handleSave}>
                 <div className = "inputContainer">
                 
-                <label className = "bodyText">What's your name</label>
+                <label className = "bodyText"> What's your name</label>
                 <input className = "addInfoInput"
                 type="text" 
                 placeholder="First and Last"
@@ -60,7 +61,7 @@ export default function AddInfo() {
 
                 <label className = "bodyText"> What year are you</label>
                 
-                <select className = "addInfoInput" id="dropdown" ref={userYear}>
+                <select className = "addInfoInput" ref={userYear}>
                     <option value="freshman">Freshman</option>
                     <option value="sophomore">Sophomore</option>
                     <option value="junior">Junior</option>
