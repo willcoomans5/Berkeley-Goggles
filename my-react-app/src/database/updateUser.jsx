@@ -1,41 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { getAuth, updateProfile } from "firebase/auth";
-import { db } from "./firebase.jsx";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import "../pages/NewUserQs.css";
+import { firebaseApp } from "./firebase";
 
 const ChangeInfo = () => {
-  const auth = getAuth();
-  const [name, setName] = useState(auth.currentUser.displayName || "");
-  const [year, setYear] = useState(auth.currentUser.year || "");
-  const [major, setMajor] = useState(auth.currentUser.major || "");
-  const [birthday, setBirthday] = useState(auth.currentUser.birthday || "");
-  const [description, setDescription] = useState(auth.currentUser.description || "");
+  const auth = getAuth(firebaseApp);
+  const db = getFirestore(firebaseApp); 
+  const userName = useRef(); 
+    const userYear = useRef(); 
+    const userBirthday = useRef(); 
+    const userMajor = useRef(); 
+    const userDescription = useRef(); 
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
-
-    // Update the user's profile in Firebase Authentication
-    try {
-      await updateProfile(auth.currentUser, {
-        displayName: name,
-      });
-      console.log("User profile updated successfully!");
-    } catch (error) {
-      console.error("Error updating user profile:", error.message);
-      return;
-    }
 
     // Update the user's data in Firestore
     try {
       const userDocRef = doc(db, "users", auth.currentUser.uid);
       await updateDoc(userDocRef, {
-        name,
-        year,
-        major,
-        birthday,
-        description,
+        uid: auth.currentUser.uid, 
+        name: userName.current.value, 
+        year: userYear.current.value, 
+        major: userMajor.current.value, 
+        birthday: userBirthday.current.value,
+        description: userDescription.current.value, 
+        matches: [] 
       });
       console.log("User data in Firestore updated successfully!");
     } catch (error) {
@@ -45,8 +37,6 @@ const ChangeInfo = () => {
 
   return (
         <div className = "whiteBackground">
-            <img src={welcome} className = "welcomeBerkeleyGoggles" alt ="title"/>
-            <img src={logo} className = "logoWelcome" alt="logo"/>
             <p className = "bodyText"> Update your profile information here!</p>
             <form onSubmit = {handleUpdateProfile}>
                 <div className = "inputContainer">

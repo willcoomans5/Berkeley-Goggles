@@ -10,6 +10,7 @@ import Profile from './pages/Profile.jsx'
 import NewUserQs from './pages/NewUserQs.jsx'
 import UploadImages from './database/uploadImages.jsx'; 
 import ChatApp from './pages/ChatPage.jsx';
+import ChangeInfo from './database/updateUser.jsx';
 //
 import Chat from './database/chat';
 import  Match from './database/Match'
@@ -63,6 +64,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <ChatApp/>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              exact path ="/update"
+              element={
+                <PrivateRoute>
+                  <ChangeInfo/>
                 </PrivateRoute>
               }
             />
