@@ -11,9 +11,13 @@ const NavigationBar = () => {
     <nav>
     <img src={logo} className = "logoNav" alt="logo"/>
       <ul className="list1">
+      <li className ="list2">
+          <Link to="/" className ="navLink"> About </Link> 
+        </li>
         <li className ="list2">
           <Link to="/" className ="navLink"> Messages </Link> 
         </li>
+
         <li className ="list2">
           <Link to="/about" className ="navLink"> Match</Link> 
         </li>

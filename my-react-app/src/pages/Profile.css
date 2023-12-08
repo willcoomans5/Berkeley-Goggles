@@ -1,27 +1,30 @@
-html {
+/* html {
     padding: 0;
     margin: 0;
-}
+} */
 
 .profileInfo {
     color: #2F343A;
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+    padding-right: 100px; 
     justify-content: flex-end;
     font-family: "Montserrat";
-    text-align: center;
+    text-align: right;
     line-height: 1.1
 }
 .profileBio {
+    margin-left: 20px;
     display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    justify-content: flex-end;
-
+    justify-content: flex-end; /* Place content on the right side */
+    align-items: center; /* Center items vertically */
+    height: 100px; /* Use the full height of the viewport */
 }
 .profileName {
-    position: relative;
+    position: absolute;
+    top: 50px;
+    padding-left: 45%;
     line-height: 1;
     font-size: 150px;
     font-family: "Nerko One";
@@ -33,5 +36,9 @@ html {
 }
 
 .profileImgs {
+    padding-top: 100px;
+    padding-left: 100px;
     width: 400px;
+    height: 400px;
+    object-fit: cover;
 }
