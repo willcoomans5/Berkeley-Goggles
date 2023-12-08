@@ -10,6 +10,7 @@ import NewUserQs from './pages/NewUserQs.jsx'
 import UploadImages from './database/uploadImages.jsx'; 
 //
 import Chat from './database/chat';
+import  Match from './database/Match'
 //
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
@@ -46,6 +47,14 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route 
+              exact path = "/match" 
+              element = {
+              <PrivateRoute>
+                <Match/>
+              </PrivateRoute>
+              }> 
+            </Route>
             <Route
               exact
               path="/messages"

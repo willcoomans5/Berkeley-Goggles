@@ -22,6 +22,9 @@ const NavigationBar = () => {
           <Link to="/about" className ="navLink"> Match</Link> 
         </li>
         <li className ="list2">
+          <Link to="/match" className ="navLink"> User</Link> 
+        </li>
+        <li className ="list2">
           <Link to="/profile" className ="navLink">Profile</Link> 
         </li>
       </ul>
