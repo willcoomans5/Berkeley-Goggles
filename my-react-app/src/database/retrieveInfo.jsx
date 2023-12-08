@@ -1,17 +1,13 @@
 import { firebaseApp } from "./firebase";
 import { getAuth } from "firebase/auth";
-import { get, child, ref, getDatabase } from "@firebase/database";
 import { useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const auth = getAuth(firebaseApp); 
-const database = getDatabase(firebaseApp); 
 const db = getFirestore(firebaseApp); 
 
 
 function RetrieveInfo() {
-    const uid = auth.currentUser.uid; 
-    const dbRef = ref(database); 
     const [username, setUsername] = useState(); 
     const [birthday, setBirthday] = useState(); 
     const [description, setDescription] = useState(); 
@@ -33,7 +29,7 @@ function RetrieveInfo() {
       }).catch((error) => {
         console.log("Error getting document:", error);
       });
-      
+
       return (
         <>
         <p className = "profileName">{username}</p>

@@ -1,6 +1,5 @@
 import React, {useRef} from "react";
 import { firebaseApp as app } from "./firebase.jsx"
-import {getDatabase, ref as dataref, set} from "@firebase/database";
 import { getFirestore, doc, setDoc  } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
@@ -9,7 +8,6 @@ import logo from '../assets/logo2.svg';
 import welcome from '../assets/frame_3.svg'
 
 
-const database = getDatabase(app);
 const auth = getAuth(app); 
 const firestore = getFirestore(app); 
 
@@ -35,26 +33,8 @@ export default function AddInfo() {
             birthday: userBirthday.current.value,
             description: userDescription.current.value
           });
-        
-        writeUserEntry(
-            userName.current.value, 
-            userYear.current.value, 
-            userMajor.current.value, 
-            userBirthday.current.value, 
-            userDescription.current.value)
-    
     }
 
-    function writeUserEntry(name, year, major, birthday, description) {
-        const uid = auth.currentUser.uid; 
-        set(dataref(database, 'users/' + uid), {       
-            name, 
-            year, 
-            major, 
-            birthday,               
-            description
-        }); 
-    }
 
     return (
         <div className = "whiteBackground">

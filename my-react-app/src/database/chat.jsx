@@ -1,63 +1,84 @@
-// Chat.jsx
 import React, { useState, useEffect } from "react";
+import {
+  collection,
+  addDoc,
+  where,
+  serverTimestamp,
+  onSnapshot,
+  query,
+  orderBy,
+} from "firebase/firestore";
+
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, onValue, push } from "firebase/database";
+import { getFirestore } from "firebase/firestore"; 
+import { firebaseApp } from "./firebase";
 
-const Chat = ({ firebaseApp }) => {
-  const auth = getAuth(firebaseApp);
-  const db = getDatabase(firebaseApp);
-  const uid = auth.currentUser.uid;
-  const messagesRef = ref(db, "messages"); 
+const db = getFirestore(firebaseApp); 
+const auth = getAuth(firebaseApp); 
 
+const Chat = ({ room }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const messagesRef = collection(db, "messages");
 
   useEffect(() => {
-    const unsubscribe = onValue(messagesRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const data = snapshot.val();
-        setMessages(Object.values(data));
-      }
+    const queryMessages = query(
+      messagesRef,
+      where("room", "==", room),
+      orderBy("createdAt")
+    );
+    const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
+      let messages = [];
+      snapshot.forEach((doc) => {
+        messages.push({ ...doc.data(), id: doc.id });
+      });
+      console.log(messages);
+      setMessages(messages);
     });
 
-    return () => unsubscribe();
-  }, [messagesRef]);
+    return () => unsuscribe();
+  }, []);
 
-  const sendMessage = () => {
-    const newMessageRef = push(messagesRef);
-    const timestamp = new Date().getTime();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    set(newMessageRef, {
+    if (newMessage === "") return;
+    await addDoc(messagesRef, {
       text: newMessage,
-      timestamp,
-      uid,
+      createdAt: serverTimestamp(),
+      user: auth.currentUser.uid,
+      room,
     });
 
     setNewMessage("");
   };
 
   return (
-    <div>
-      <div>
+    <div className="chat-app">
+      <div className="header">
+        <h1>Welcome to: {room.toUpperCase()}</h1>
+      </div>
+      <div className="messages">
         {messages.map((message) => (
-          <div key={message.timestamp}>{message.text}</div>
+          <div key={message.id} className="message">
+            <span className="user">{message.user}:</span> {message.text}
+          </div>
         ))}
       </div>
-      <div>
+      <form onSubmit={handleSubmit} className="new-message-form">
         <input
           type="text"
           value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
+          onChange={(event) => setNewMessage(event.target.value)}
+          className="new-message-input"
+          placeholder="Type your message here..."
         />
-        <button onClick={sendMessage}>Send</button>
-      </div>
+        <button type="submit" className="send-button">
+          Send
+        </button>
+      </form>
     </div>
   );
 };
 
-export default Chat;
-
-
-
-
-
+export default Chat; 

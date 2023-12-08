@@ -9,6 +9,7 @@ import MatchingPage from './pages/MatchingPage.jsx'
 import Profile from './pages/Profile.jsx'
 import NewUserQs from './pages/NewUserQs.jsx'
 import UploadImages from './database/uploadImages.jsx'; 
+import ChatApp from './pages/ChatPage.jsx';
 //
 import Chat from './database/chat';
 import  Match from './database/Match'
@@ -61,7 +62,7 @@ function App() {
               path="/messages"
               element={
                 <PrivateRoute>
-                  <Chat/>
+                  <ChatApp/>
                 </PrivateRoute>
               }
             />
