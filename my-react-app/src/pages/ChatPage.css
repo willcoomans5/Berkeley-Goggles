@@ -1,0 +1,40 @@
+.enter-chat-button {
+    font-size: 20px;
+    margin: 20px;
+    padding: 15px 30px;
+    background-color: #E3E3E3;
+    color: #2F343A;
+    border: 1px solid #2F343A;
+    border-radius: 5px;
+    transition: background-color 0.6s ease-in-out, border-color 0.6s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .enter-chat-button:hover {
+    background-color: #2F343A;
+    border-color: #E3E3E3;
+    color: #E3E3E3
+  }
+
+.room {
+    font-family: "Montserrat";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+}
+
+.button-label {
+    font-size: 25px;
+    color: #E3E3E3;
+    text-align: center;
+}
+
+.room-name {
+    width: 300px; /* Set your desired width */
+    height: 40px; /* Set your desired height */
+    padding: 8px; /* Adjust padding to add spacing inside the input */
+    font-size: 16px; /* Set your desired font size */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+}

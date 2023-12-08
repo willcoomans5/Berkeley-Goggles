@@ -3,6 +3,7 @@ import Chat from "../database/chat.jsx";
 import { getAuth } from "firebase/auth";
 import { firebaseApp } from "../database/firebase";
 import NavigationBar from "../components/NavigationBar.jsx"
+import "./ChatPage.css"
 
 const auth = getAuth(firebaseApp); 
 
@@ -17,9 +18,10 @@ function ChatApp() {
     <div>
       {!isInChat ? (
         <div className="room">
-          <label> Type room name: </label>
-          <input onChange={(e) => setRoom(e.target.value)} />
+          <p className="button-label"> Who would you like to chat with? </p>
+          <input className="room-name" onChange={(e) => setRoom(e.target.value)} />
           <button
+            className="enter-chat-button"
             onClick={() => {
               setIsInChat(true);
             }}
