@@ -1,6 +1,7 @@
 import React, {useRef} from "react";
 import { firebaseApp as app } from "./firebase.jsx"
 import {getDatabase, ref as dataref, set} from "@firebase/database";
+import { getFirestore, doc, setDoc  } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
 import "../pages/NewUserQs.css"
@@ -10,6 +11,7 @@ import welcome from '../assets/frame_3.svg'
 
 const database = getDatabase(app);
 const auth = getAuth(app); 
+const firestore = getFirestore(app); 
 
 
 export default function AddInfo() {
@@ -25,12 +27,22 @@ export default function AddInfo() {
 
     const handleSave = async(e) => {
         e.preventDefault();
+
+        await setDoc(doc(firestore, "users", `${auth.currentUser.uid}`), {
+            name: userName.current.value, 
+            year: userYear.current.value, 
+            major: userMajor.current.value, 
+            birthday: userBirthday.current.value,
+            description: userDescription.current.value
+          });
+        
         writeUserEntry(
             userName.current.value, 
             userYear.current.value, 
             userMajor.current.value, 
             userBirthday.current.value, 
             userDescription.current.value)
+    
     }
 
     function writeUserEntry(name, year, major, birthday, description) {

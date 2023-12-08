@@ -2,9 +2,11 @@ import { firebaseApp } from "./firebase";
 import { getAuth } from "firebase/auth";
 import { get, child, ref, getDatabase } from "@firebase/database";
 import { useState } from "react";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const auth = getAuth(firebaseApp); 
 const database = getDatabase(firebaseApp); 
+const db = getFirestore(firebaseApp); 
 
 
 function RetrieveInfo() {
@@ -15,21 +17,23 @@ function RetrieveInfo() {
     const [description, setDescription] = useState(); 
     const [year, setYear] = useState(); 
 
-    get(child(dbRef, `users/${uid}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-          const userInfo = snapshot.val(); 
-          console.log(userInfo); 
-          setUsername(userInfo.name); 
-          setBirthday(userInfo.birthday); 
-          setDescription(userInfo.description); 
-          setYear(userInfo.year); 
-        } else {
-          console.log("No data available");
-        }
+    var docRef = doc(db, "users", `${auth.currentUser.uid}`);
+    getDoc(docRef).then((doc) => {
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+        const userData = doc.data(); 
+        setUsername(userData.name); 
+        setBirthday(userData.birthday); 
+        setDescription(userData.description); 
+        setYear(userData.year); 
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
       }).catch((error) => {
-        console.error(error);
+        console.log("Error getting document:", error);
       });
-
+      
       return (
         <>
         <p className = "profileName">{username}</p>
