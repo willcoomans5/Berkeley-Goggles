@@ -9,7 +9,7 @@ import logo from '../assets/logo2.svg';
 const NavigationBar = () => {
   return (
     <nav>
-    <img src={logo} className = "logoNav" alt="logo"/>
+      <img src={logo} className = "logoNav" alt="logo"/>
       <ul className="list1">
       <li className ="list2">
           <Link to="/" className ="navLink"> About </Link> 

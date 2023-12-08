@@ -24,15 +24,19 @@ nav {
     color: #E3E3E3; 
     font-family: "Montserrat";
     font-size: 20px;
+    transition: color 1s ease;
+    margin: 15px
   }
   
   /* Style for links on hover */
   .navLink:hover {
+    color: #2F343A;
+    background-color: #E3E3E3;
     border-bottom: 2px solid white; /* Add an underline on hover */
   }
 
   .logoNav {
-    object-fit: fill;
+    /* object-fit: fill; */
     width: 100px;
     height: 50px;
     /* display: flex;
