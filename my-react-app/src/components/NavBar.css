@@ -1,0 +1,51 @@
+/* Add this CSS to your stylesheet or component style */
+nav {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    background-color: #2F343A; /* Background color for the navigation bar */
+    padding: 15px; /* Add some padding for better aesthetics */
+  }
+  
+  .list1 {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+  }
+  
+  .list2 {
+    display: inline-block;
+    margin-right: 50px; /* Add spacing between navigation items */
+  }
+
+  
+  .navLink {
+    text-decoration: none;
+    color: #E3E3E3; 
+    font-family: "Montserrat";
+    font-size: 20px;
+    transition: color 1s ease;
+    margin: 15px
+  }
+  
+  /* Style for links on hover */
+  .navLink:hover {
+    color: #2F343A;
+    background-color: #E3E3E3;
+    border-bottom: 2px solid white; /* Add an underline on hover */
+  }
+
+  .logoNav {
+    object-fit: fill;
+    width: 100px;
+    height: 50px;
+    /* display: flex;
+    justify-content: left; Align items to the right */
+    /* position: relative;
+    right: 800px; */
+    padding-top: 0px;
+  /* max-width:50px;
+  max-height:50px;
+  width: auto;
+  height: auto; */
+  }

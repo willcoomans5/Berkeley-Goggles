@@ -33,7 +33,7 @@ const RetrieveImages = () => {
       <ul>
         {imageUrls.map((url) => (
           <li>
-            <img src={url} height="400px"/>
+            <img className="profileImgs" src={url}/>
           </li>
         ))}
       </ul>

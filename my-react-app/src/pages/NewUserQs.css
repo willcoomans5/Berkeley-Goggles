@@ -1,7 +1,21 @@
 .whiteBackground {
     background-color:#E3E3E3;
-    margin-top: -10;
+    margin-top: 0;
     margin-bottom: 0;
+}
+
+#dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 45px;
+  width: 424px;
+  color: #E3E3E3;
+}
+select {
+  height: 45px;
+  width: 424px;
+  color: #E3E3E3;
 }
 
 .addInfoInput {
@@ -99,4 +113,28 @@
     color: #2F343A;
     padding-left:20%;
     padding-right: 20%;
+  }
+
+  .welcomeBerkeleyGoggles {
+    object-fit: contain;
+    position: relative;
+    top: 0px;
+    left: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+    max-width:1000px;
+    /* max-height:1000px; */
+    width: auto;
+    height: auto;
+  }
+
+  .logoWelcome {
+    position: absolute;
+    padding-left: 45%;
+    padding-right: 45%;
+    top: 225px;
+    max-width: 150px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
   }

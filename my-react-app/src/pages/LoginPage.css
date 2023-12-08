@@ -8,7 +8,7 @@
     border: 1px solid #ccc;
     border-radius: 10px; 
     display: block;
-    margin: 15px;
+    margin-top: 15px;
     background-color: #E3E3E3;
     color: #2F343A;
     font-family: 'Montserrat';
@@ -20,7 +20,7 @@
     flex-direction: column;
     justify-content: center;
     place-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     font-family: 'Montserrat';
 
 }
@@ -100,4 +100,27 @@ body {
 
   .background {
     background-color: #2F343A;
+  }
+
+  .logoLogin {
+    display: block;
+    padding-top: 100px;
+    margin-left: auto;
+  margin-right: auto;
+  max-width:150px;
+  max-height:150px;
+  width: auto;
+  height: auto;
+  }
+
+  .logoWelcome {
+    display: block;
+    padding-top: 20px;
+    margin-left: auto;
+  margin-right: auto;
+  max-width: 150px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+
   }

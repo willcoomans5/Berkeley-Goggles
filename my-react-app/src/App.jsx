@@ -5,9 +5,14 @@ import PrivateRoute from './PrivateRoute.jsx';
 import LandingPage from './pages/LandingPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
+import MatchingPage from './pages/MatchingPage.jsx'
 import Profile from './pages/Profile.jsx'
 import NewUserQs from './pages/NewUserQs.jsx'
 import UploadImages from './database/uploadImages.jsx'; 
+//
+import Chat from './database/chat';
+import  Match from './database/Match'
+//
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css'
@@ -40,6 +45,23 @@ function App() {
               element = {
                 <PrivateRoute>
                   <UploadImages/>
+                </PrivateRoute>
+              }
+            />
+            <Route 
+              exact path = "/match" 
+              element = {
+              <PrivateRoute>
+                <MatchingPage/>
+              </PrivateRoute>
+              }> 
+            </Route>
+            <Route
+              exact
+              path="/messages"
+              element={
+                <PrivateRoute>
+                  <Chat/>
                 </PrivateRoute>
               }
             />
