@@ -8,6 +8,9 @@ import SignUpPage from './pages/SignUpPage.jsx'
 import Profile from './pages/Profile.jsx'
 import NewUserQs from './pages/NewUserQs.jsx'
 import UploadImages from './database/uploadImages.jsx'; 
+//
+import Chat from './database/chat';
+//
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css'
@@ -48,7 +51,7 @@ function App() {
               path="/messages"
               element={
                 <PrivateRoute>
-                  <chat/>
+                  <Chat/>
                 </PrivateRoute>
               }
             />
