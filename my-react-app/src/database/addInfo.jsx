@@ -27,11 +27,13 @@ export default function AddInfo() {
         e.preventDefault();
 
         await setDoc(doc(firestore, "users", `${auth.currentUser.uid}`), {
+            uid: auth.currentUser.uid, 
             name: userName.current.value, 
             year: userYear.current.value, 
             major: userMajor.current.value, 
             birthday: userBirthday.current.value,
-            description: userDescription.current.value
+            description: userDescription.current.value, 
+            matches: [] 
           });
     }
 
