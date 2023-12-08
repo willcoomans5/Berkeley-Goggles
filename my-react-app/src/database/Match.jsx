@@ -39,9 +39,13 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { getDatabase, ref, get, child } from 'firebase/database';
-import { firebaseApp } from './firebase';  // Update the import statement\
+// import { getDatabase, ref, get, child } from 'firebase/database';
+// import { firebaseApp } from './firebase';  
+// import { getAuth } from "firebase/auth";
+import { firebaseApp } from "./firebase";
 import { getAuth } from "firebase/auth";
+import { get, child, ref, getDatabase } from "@firebase/database";
+
 
 const auth = getAuth(firebaseApp); 
 const db = getDatabase(firebaseApp);
@@ -50,7 +54,7 @@ const Match = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const uid = auth.currentUser.uid; // obtain the UID from your authentication context or wherever it's available
+      const uid = auth.currentUser.uid;
       const usersRef = ref(db, `users/${uid}`);
 
       try {
