@@ -70,7 +70,7 @@ const Match = () => {
   }, []);
 
   return (
-    <div>
+    <div className="matches">
       {/* Render your component with the data */}
       {data && (
         <div>

@@ -5,6 +5,7 @@ import PrivateRoute from './PrivateRoute.jsx';
 import LandingPage from './pages/LandingPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
+import MatchingPage from './pages/MatchingPage.jsx'
 import Profile from './pages/Profile.jsx'
 import NewUserQs from './pages/NewUserQs.jsx'
 import UploadImages from './database/uploadImages.jsx'; 
@@ -51,7 +52,7 @@ function App() {
               exact path = "/match" 
               element = {
               <PrivateRoute>
-                <Match/>
+                <MatchingPage/>
               </PrivateRoute>
               }> 
             </Route>
