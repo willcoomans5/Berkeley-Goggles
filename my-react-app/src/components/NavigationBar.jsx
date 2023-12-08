@@ -25,6 +25,9 @@ const NavigationBar = () => {
         <li className ="list2">
           <Link to="/profile" className ="navLink">Profile</Link> 
         </li>
+        <li className ="list2">
+          <Link to="/update" className ="navLink">Update Profile</Link> 
+        </li>
       </ul>
     </nav>
   );

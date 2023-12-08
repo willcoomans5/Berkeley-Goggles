@@ -11,6 +11,18 @@ function ChatApp() {
   const [isInChat, setIsInChat] = useState(null);
   const [room, setRoom] = useState("");
 
+  const roomName = (theirUID) => {
+    const yourUID = auth.currentUser.uid; 
+    const order = yourUID.localeCompare(theirUID);
+    if (order > 1) {
+        return (
+            theirUID + yourUID
+        ); 
+    }
+    return yourUID + theirUID; 
+  }
+
+  
 
   return ( 
   <>
