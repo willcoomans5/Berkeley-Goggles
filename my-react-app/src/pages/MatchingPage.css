@@ -1,4 +1,70 @@
+html {
+    background-color: #E3E3E3
+}    
+
 .matches {
     color: #E3E3E3;
     font-family: "Montserrat";
+}
+
+.getMatches {
+    padding: 10px 20px;
+    background-color: #E3E3E3;
+    color: #2F343A;
+    border: 1px solid #2F343A;
+    border-radius: 5px;
+    transition: background-color 0.6s ease-in-out, border-color 0.6s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .getMatches:hover {
+    background-color: #2F343A;
+    border-color: #E3E3E3;
+    color: #E3E3E3
+  }
+
+.one-match {
+    list-style: none;
+    margin-bottom: 20px;
+    border: 2px solid #E3E3E3;
+    border-radius: 5px;
+    padding: 10px;
+    color:  #E3E3E3;
+    transition: background-color 0.6s ease-in-out, border-color 0.6s ease-in-out;
+}
+
+    .one-match:hover {
+        background-color: #E3E3E3;
+        border-color: #2F343A;
+        color: #2F343A
+    }
+
+.match-info {
+text-align: center;
+}
+
+.match-name {
+font-weight: bold;
+font-size: 20px;
+margin-bottom: 10px;
+}
+
+.match-details {
+text-align: left;
+}
+
+.match-dob {
+font-size: 16px;
+margin-bottom: 5px;
+}
+
+.match-bio {
+font-size: 14px;
+}
+
+.match-button {
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

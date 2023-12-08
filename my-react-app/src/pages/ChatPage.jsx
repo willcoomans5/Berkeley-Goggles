@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Chat from "../database/chat.jsx";
 import { getAuth } from "firebase/auth";
 import { firebaseApp } from "../database/firebase";
+import NavigationBar from "../components/NavigationBar.jsx"
 
 const auth = getAuth(firebaseApp); 
 
@@ -22,7 +23,9 @@ function ChatApp() {
 
   
 
-  return (
+  return ( 
+  <>
+    <NavigationBar/>
     <div>
       {!isInChat ? (
         <div className="room">
@@ -40,6 +43,7 @@ function ChatApp() {
         <Chat room={room} />
       )}
     </div>
+  </>
   );
 }
 
