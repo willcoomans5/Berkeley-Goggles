@@ -20,11 +20,11 @@ const Match = () => {
     });}
   
     const listItems = matchlist.map(person =>
-      <li>
+      <li className="one-match">
         <ul>
-          <li>{person.name}</li>
-          <li>{person.birthday}</li>
-          <li>{person.description}</li>
+          <li className="match-name">{person.name}</li>
+          <li className="match-dob">{person.birthday}</li>
+          <li className="match-bio">{person.description}</li>
         </ul>
       </li>
     );
@@ -35,13 +35,13 @@ const Match = () => {
       {/* Render your component with the data */}
       {(
         <div>
-          <ul>{listItems}</ul>;
+          <ul>{listItems}</ul>
         </div>
       )}
     </div>
-    <div>
+    <div className="match-button">
       <form onSubmit={match}>
-        <button type="submit">Display Matches</button>
+        <button type="submit" className="getMatches">Meet Your Matches</button>
       </form>
 
     </div>
