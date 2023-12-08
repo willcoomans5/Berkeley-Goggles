@@ -10,6 +10,7 @@ const NavigationBar = () => {
   return (
     <nav>
       <img src={logo} className = "logoNav" alt="logo"/>
+      <div className="spacer"></div>
       <ul className="list1">
         <li className ="list2">
           <Link to="/" className ="navLink"> About </Link> 
