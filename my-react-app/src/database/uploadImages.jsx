@@ -17,11 +17,13 @@ const auth = getAuth(app);
 
 export default function UploadImages() {
 
+    const [file, setFile] = useState();
     const [images, setImages] = useState(); 
 
     const handleSave = async(e) => {
         e.preventDefault();
         upload(); 
+        setFile()
     }
 
     function upload() {
@@ -37,6 +39,7 @@ export default function UploadImages() {
 
     function displayImage(e) {
         setImages(e.target.files)
+        setFile(URL.createObjectURL(e.target.files[0]));
     }
 
     return (
@@ -44,7 +47,8 @@ export default function UploadImages() {
             <form onSubmit = {handleSave}>
                 <h4>Upload Images</h4>
                 <input type="file" multiple onChange={displayImage} />
-                <button type="submit">Save</button>
+                <button type="submit">Upload</button>
+                <img src={file} />
                 <p><Link to="/questions"><button>Back</button></Link></p>
             </form>
         </div>

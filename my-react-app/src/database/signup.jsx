@@ -64,7 +64,7 @@ const SignUp = () =>  {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 /><br/>
-                <button className = "submit" type="submit">Submit</button>
+                <button className = "submit" type="submit">Confirm Login</button>
                 <p>{displayError}</p>
                 <p>{shouldRedirect && <Link to="/questions"><button>Continue</button></Link>}</p>
             </div>

@@ -55,7 +55,7 @@ const LogIn = () =>  {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button className = "submit" type="submit"> Submit </button>
+                    <button className = "submit" type="submit"> Confirm Login </button>
                     <p>{shouldRedirect && <Link to="/profile"><button>Continue</button></Link>}</p>
                 </div>
             </form>

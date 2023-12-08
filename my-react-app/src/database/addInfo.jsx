@@ -80,7 +80,7 @@ export default function AddInfo() {
                 type="text" ref={userDescription}/>
              
 
-                <button className = "addInfoSubmit" type="submit">Save</button>
+                <button className = "addInfoSubmit" type="submit">Save Info</button>
                 <p><Link to="/upload"><button>Continue</button></Link></p>
                 </div>
             </form>
