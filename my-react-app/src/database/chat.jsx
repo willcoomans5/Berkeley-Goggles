@@ -55,9 +55,6 @@ const Chat = ({ room }) => {
 
   return (
     <div className="chat-app">
-      <div className="header">
-        <h1>Welcome to: {room.toUpperCase()}</h1>
-      </div>
       <div className="messages">
         {messages.map((message) => (
           <div key={message.id} className="message">

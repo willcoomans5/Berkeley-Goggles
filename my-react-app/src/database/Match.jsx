@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { collectionGroup, query, where, getDocs, getFirestore } from "firebase/firestore";  
+import { collectionGroup, query, where, 
+  doc, updateDoc, getDocs, getFirestore, arrayUnion } from "firebase/firestore";  
+import { getAuth } from 'firebase/auth';
 import { firebaseApp } from './firebase';
 
 const db = getFirestore(firebaseApp); 
+const auth = getAuth(firebaseApp); 
 
 const Match = () => {
   const [matchlist, setMatchlist] = useState([]); 
+
+  async function matchWithUser(person) {
+    const myUID = auth.currentUser.uid; 
+    const theirUID = person.uid; 
+
+    const myUserRef = doc(db, "users", `${myUID}`);
+
+    await updateDoc(myUserRef, {
+      matches: arrayUnion(theirUID)
+    });
+  }
 
   async function match(e) {
     e.preventDefault(); 
@@ -25,6 +39,7 @@ const Match = () => {
           <li>{person.name}</li>
           <li>{person.birthday}</li>
           <li>{person.description}</li>
+          <button onClick={() => matchWithUser(person)}>Match with {person.name}</button>
         </ul>
       </li>
     );
