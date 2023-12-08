@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { firebaseApp as app } from "./firebase.jsx";
 import { signInWithEmailAndPassword, getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { Link } from "react-router-dom";
+import logo from '../assets/logo2.svg';
+
 import "../pages/LoginPage.css";
 
 const auth = getAuth(app);
@@ -68,6 +70,7 @@ const LogIn = () => {
 
   return (
     <div className="background">
+        <img src={logo} className = "logoLogin" alt="logo"/>
       <form onSubmit={signIn}>
         <div className="inputContainer">
           <h1 className="pageTitle"> Log In </h1>

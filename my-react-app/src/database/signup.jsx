@@ -45,6 +45,8 @@ const SignUp = () => {
   
     return (
       <div className="background">
+        <img src={logo} className = "logoLogin" alt="logo"/>
+
         <form onSubmit={signUpUser}>
           <div className="inputContainer">
             <h1 className="pageTitle">Create Account</h1>
