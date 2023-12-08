@@ -43,6 +43,15 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route
+              exact
+              path="/messages"
+              element={
+                <PrivateRoute>
+                  <chat/>
+                </PrivateRoute>
+              }
+            />
         </Routes>
     </Router>
   )
