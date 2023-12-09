@@ -12,23 +12,63 @@ function ChatApp() {
   const [room, setRoom] = useState("");
   const [matchedUsers, setMatchedUsers] = useState([]); 
 
+  // async function displayMatches(e) {
+  //   e.preventDefault();
+  //   var docRef = doc(db, "users", `${auth.currentUser.uid}`);
+  //   getDoc(docRef).then((doc) => {
+  //     if (doc.exists) {
+  //       console.log("Document data:", doc.data());
+  //       const userData = doc.data(); 
+  //       console.log(userData.matches);
+  //       setMatchedUsers(prevMatchedUsers => [...prevMatchedUsers, userData.matches]);
+  //     } else {
+  //       // doc.data() will be undefined in this case
+  //       console.log("No such document!");
+  //     }
+  //     }).catch((error) => {
+  //       console.log("Error getting document:", error);
+  //     });
+  // }
   async function displayMatches(e) {
     e.preventDefault();
-    var docRef = doc(db, "users", `${auth.currentUser.uid}`);
-    getDoc(docRef).then((doc) => {
-      if (doc.exists) {
-        console.log("Document data:", doc.data());
-        const userData = doc.data(); 
-        console.log(userData.matches);
-        setMatchedUsers([...matchedUsers, userData.matches]); 
+  
+    try {
+      const docRef = doc(db, "users", `${auth.currentUser.uid}`);
+      const docSnap = await getDoc(docRef);
+  
+      if (docSnap.exists()) {
+        const userData = docSnap.data();
+        console.log("Document data:", userData);
+  
+        if (userData.matches && Array.isArray(userData.matches)) {
+          // userData.matches is an array of user IDs
+          setMatchedUsers(userData.matches);
+        } else {
+          console.log("No matches found.");
+        }
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
-      }).catch((error) => {
-        console.log("Error getting document:", error);
-      });
+    } catch (error) {
+      console.error("Error getting document:", error);
+    }
   }
+  
+  const listItems = matchedUsers.map((userId) => (
+    <li className="one-match" key={userId}>
+      <ul>
+        <button onClick={() => handleClick(userId)}>Load Chat for {userId}</button>
+      </ul>
+    </li>
+  ));
+  
+  function handleClick(userId) {
+    setRoom(roomName(userId));
+    setIsInChat(true);
+  }
+  
+ //
+  
   
 
   function roomName(theirUID) {
@@ -42,18 +82,20 @@ function ChatApp() {
     return yourUID + theirUID; 
   }
 
-  const listItems = matchedUsers.map(person =>
-    <li className="one-match">
-      <ul>
-        <button onClick={() => handleClick(person.uid)}>Match with {person.name}</button>
-      </ul>
-    </li>
-  );
+  // const listItems = matchedUsers.map(person => (
+  //   <li className="one-match" key={person.uid}>
+  //     <ul>
+  //       <button onClick={() => handleClick(person.uid)}>{person.name}</button>
+  //     </ul>
+  //   </li>
+  // ));
+  
 
-  function handleClick(UID) {
-    setRoom(roomName(UID)); 
-    setIsInChat(true); 
-  }
+
+  // function handleClick(UID) {
+  //   setRoom(roomName(UID)); 
+  //   setIsInChat(true); 
+  // }
 
   return (
     <div>
