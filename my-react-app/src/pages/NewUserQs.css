@@ -138,3 +138,7 @@ select {
   width: auto;
   height: auto;
   }
+
+  #error-text {
+    color: black;
+  }

@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, { useRef, useState } from "react";
 import { firebaseApp as app } from "./firebase.jsx"
 import { getFirestore, doc, setDoc  } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "../pages/NewUserQs.css"
 import logo from '../assets/logo2.svg';
 import welcome from '../assets/frame_3.svg'
+
 
 
 const auth = getAuth(app); 
@@ -22,20 +23,37 @@ export default function AddInfo() {
     const userMajor = useRef(); 
     const userDescription = useRef(); 
 
+    const [submitDisabled, setSubmitDisabled] = useState(false);
+    const [displayError, setDisplayError] = useState();
 
-    const handleSave = async(e) => {
+
+    const handleSave = async (e) => {
         e.preventDefault();
-
-        await setDoc(doc(firestore, "users", `${auth.currentUser.uid}`), {
-            uid: auth.currentUser.uid, 
-            name: userName.current.value, 
-            year: userYear.current.value, 
-            major: userMajor.current.value, 
+    
+        // Check if all input fields are filled
+        if (
+          userName.current.value &&
+          userYear.current.value &&
+          userBirthday.current.value &&
+          userMajor.current.value &&
+          userDescription.current.value
+        ) {
+          // All fields are filled, proceed with saving
+          await setDoc(doc(firestore, "users", `${auth.currentUser.uid}`), {
+            uid: auth.currentUser.uid,
+            name: userName.current.value,
+            year: userYear.current.value,
+            major: userMajor.current.value,
             birthday: userBirthday.current.value,
-            description: userDescription.current.value, 
-            matches: [] 
+            description: userDescription.current.value,
+            matches: [],
           });
-    }
+        } else {
+          // At least one field is empty, disable submission or show an error message
+          setSubmitDisabled(true);
+          setDisplayError("All fields must be filled");
+        }
+      };
 
 
     return (
@@ -78,7 +96,8 @@ export default function AddInfo() {
                 type="text" ref={userDescription}/>
              
 
-                <button className = "addInfoSubmit" type="submit">Save Info</button>
+                <button className = "addInfoSubmit" type="submit" disabled={submitDisabled}>Save Info</button>
+                <p id="error-text">{displayError}</p>
                 <p><Link to="/upload"><button>Continue</button></Link></p>
                 </div>
             </form>
