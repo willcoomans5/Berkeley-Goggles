@@ -5,6 +5,8 @@ nav {
     align-items: center;
     background-color: #2F343A; /* Background color for the navigation bar */
     padding: 15px; /* Add some padding for better aesthetics */
+    position: sticky;
+    top: 0;
   }
   
   .spacer {
