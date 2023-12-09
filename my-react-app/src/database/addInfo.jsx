@@ -55,7 +55,7 @@ export default function AddInfo() {
 
                 <label className = "bodyText"> What year are you</label>
                 
-                <select className = "addInfoInput" ref={userYear}>
+                <select id="dropdown" className = "addInfoInput" ref={userYear}>
                     <option value="freshman">Freshman</option>
                     <option value="sophomore">Sophomore</option>
                     <option value="junior">Junior</option>

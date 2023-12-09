@@ -49,7 +49,7 @@ export default function UploadImages() {
                 <input type="file" multiple onChange={displayImage} />
                 <button type="submit">Upload</button>
                 <img src={file} />
-                <p><Link to="/questions"><button>Back</button></Link></p>
+                <p><Link to="/profile"><button>Back to Profile</button></Link></p>
             </form>
         </div>
     )
